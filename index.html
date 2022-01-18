@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body style="background-color: burlywood;"></body>
+
+<style>
+    .container button {
+        text-align: center;
+        padding: 15px;
+
+    }
+
+    h1 {
+        text-align: center;
+        padding: 23px;
+        background-color: rgb(253, 93, 93);
+        color: rgb(48, 2, 2);
+    }
+
+    #clear {
+        width: 270px;
+        border: 3px solid rgb(56, 5, 71);
+        border-radius: 3px;
+        padding: 20px;
+        background-color: rgb(224, 145, 248);
+    }
+
+    .container {
+        text-align: center;
+        width: 300px;
+        height: 550px;
+        margin: auto;
+        border: 3px solid black;
+        border-radius: 5px;
+        padding: 20px;
+    }
+
+    #calc {
+        width: 250px;
+        border: 5px solid black;
+        border-radius: 3px;
+        padding: 20px;
+        margin: auto;
+    }
+</style>
+
+<body>
+
+    <H1>ARHAM CALCULATOR</H1>
+    <h1 id="result"></h1>
+    <div class="container">
+
+        <button id="1" onclick="inputnumber('1')">1</button>
+        <button id="2" onclick="inputnumber('2')">2</button>
+        <button id="3" onclick="inputnumber('3')">3</button>
+        <br>
+        <button id="4" onclick="inputnumber('4')">4</button>
+        <button id="5" onclick="inputnumber('5')">5</button>
+        <button id="6" onclick="inputnumber('6')">6</button>
+        <br>
+        <button id="7" onclick="inputnumber('7')">7</button>
+        <button id="8" onclick="inputnumber('8')">8</button>
+        <button id="9" onclick="inputnumber('9')">9</button>
+        <br>
+        <button id="0" onclick="inputnumber('0')">0</button>
+        <button id="." onclick="inputnumber('.')">.</button>
+        <button id="plus" onclick="working('+')">+</button>
+        <br>
+        <button id="minus" onclick="working('-')">-</button>
+        <button id="multiply" onclick="working('*')">*</button>
+        <button id="divide" onclick="working('/')">/</button>
+        <br>
+
+        <button id="square" onclick="working('square')">SQUARE</button>
+        <button id="cube" onclick="working('cube')">CUBE</button>
+        <br>
+        <button id="calculate" onclick="working('=')">CALCULATE</button>
+        <br>
+        <button id="clear" onclick="working('clear')">CLEAR</button>
+    </div>
+
+</body>
+<script>
+
+    let numInput = ""
+    let numResult = ""
+    let operator_previous = ''
+
+    function inputnumber(keyValue) {
+        if (numinput = "") {
+            Result.innerhtml = ""
+
+
+        }
+        result.innerHTML += keyValue
+        numInput += keyValue
+
+
+    }
+
+    function working(calc) {
+        if (numResult === '') {
+            numResult = numInput
+        } else {
+            switch (operator_previous) {
+                case "square": numResult = Number(numResult) * Number(numResult)
+                    break
+                case "cube": numResult = Number(numResult) * Number(numResult) * Number(numResult)
+                    break
+
+                case "*": numResult = Number(numResult) * Number(numInput)
+                    break;
+                case "+": numResult = Number(numResult) + Number(numInput);
+                    break;
+                case "-": numResult = Number(numResult) - Number(numInput);
+                    break;
+                case "/": numResult = Number(numResult) / Number(numInput);
+                    break;
+                case "clear": numResult = ""
+                    break
+
+
+            }
+            result.innerHTML = numResult
+        }
+
+        console.log("gg", numResult)
+        numInput = '';
+        operator_previous = calc
+
+
+    }
+
+</script>
+</body>
+
+
+</html>
